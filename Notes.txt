@@ -19,3 +19,16 @@ Mobile- 480 and below
 Small devices- 768 and up
 Medium (laptop, tablet, desktop)- 992 and up
 Larger devices -1200 and up
+
+
+
+
+
+
+
+
+~~~Blogs Get blogs to loop through~~~
+in routes you will send result with render
+Look at ivas_node_site
+routes.js line 159
+blogs.ejs line 56
