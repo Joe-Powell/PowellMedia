@@ -1,0 +1,41 @@
+<%- include('./includes/header') %>
+<link rel="stylesheet" href="css/adminPage.css">
+
+<header class="header">
+  <div class="banner-text">
+    <h1>Welcome to The Admin Pannel</h1>
+    <h3>Health and Wealth strategies</h3>
+    <a href="/">
+      <h4>Back to Home</h4>
+    </a>
+  </div>
+</header>
+
+
+<form class="adminForm" name="adminForm" enctype="multipart/form-data">
+  <input type="text" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder='Title'">
+  <input type="file" name="blogUpload" hidden>
+  <button class="btn1" type="button">Blog</button>
+  <span class="filename_landing"></span>
+  <input type="file" name="thumbNailUpload" hidden>
+  <button class="btn" type="button">Thumbnail</button>
+  <span class="filename_landing"></span>
+
+  
+  <input type="submit" name="submitAdminForm">
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<%- include('./includes/footer') %>

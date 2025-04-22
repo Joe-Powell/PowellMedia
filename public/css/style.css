@@ -1,0 +1,19 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont ;
+ 
+}
+
+.containAll {
+  height: 100vh;
+  padding: 100px 10px 0;
+}
+
+header {
+  margin: auto;
+  text-align: center;
+}

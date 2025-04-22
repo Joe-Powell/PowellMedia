@@ -1,0 +1,21 @@
+npm start
+
+--Media Queries--
+
+/* For screens that are 450px and below
+@media (max-width: 450px){
+
+ }
+
+
+
+
+CSS Notes------
+nav ul li { for padding } 
+nav ul li a  { for the color of the text }
+
+Screen sizes
+Mobile- 480 and below
+Small devices- 768 and up
+Medium (laptop, tablet, desktop)- 992 and up
+Larger devices -1200 and up

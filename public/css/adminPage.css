@@ -1,0 +1,22 @@
+
+
+.adminForm {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  border: 1px black solid;
+  padding: 7px;
+  margin: 50px auto;
+}
+
+.adminForm input {
+  padding: 7px 4px;
+  margin: 10px 0;
+  outline: none;
+}
+
+.adminForm .btn {
+  padding: 7px 4px;
+  margin: 10px 0;
+
+}
