@@ -41,6 +41,11 @@ nav ul li a{
 
 }
 
+.mainNavUl .adminBtn a {
+  color: yellow;
+
+}
+
 nav .mainNavUl {
   display: flex;
   justify-content: space-between;

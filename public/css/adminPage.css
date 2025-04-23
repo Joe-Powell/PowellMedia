@@ -15,7 +15,8 @@
   outline: none;
 }
 
-.adminForm .btn {
+.adminForm .btnAdmn {
+  width:100%;
   padding: 7px 4px;
   margin: 10px 0;
 

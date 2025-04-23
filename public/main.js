@@ -1,10 +1,10 @@
 console.log('working main.js')
-const btn1 = document.querySelector('.btn1')
+const btn = document.querySelector('.btn')
 const uploadBlogFile = document.querySelector('input[name=blogUpload]')
 const Bars = document.querySelector('.fa-bars')
 const slideMenu = document.querySelector('.slideMenu')
 
-if(btn1) {
+if(btn) {
   btn1.addEventListener('click', ()=> {
     uploadBlogFile.click()
   })
