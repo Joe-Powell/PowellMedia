@@ -32,3 +32,40 @@ for (let i = 0; i < searchIcon.length; i++) {
     })
 
 }
+
+
+
+// Register / Login 
+
+const reglogForm = document.querySelector('.reglogForm')
+
+if(reglogForm) {
+  reglogForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    console.log('Submitted registration form in signup page')
+    const email = document.querySelector('input[name=email]').value;
+    const username = document.querySelector('input[name=username]').value;
+    const password = document.querySelector('input[name=password]').value;
+    console.log(email,username, password )
+    const body = {
+      email,
+      username,
+      password
+      }
+
+      fetch('/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(body)
+          })
+
+ 
+
+
+
+
+  } )
+}

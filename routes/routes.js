@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 require('dotenv').config();
 router.use(express.urlencoded({ extended: false })); 
+var cookieParser = require('cookie-parser')
+router.use(cookieParser())
 
 
 router.get('/', function (req, res) {
@@ -16,7 +18,7 @@ router.get('/', function (req, res) {
   res.render('admin')
  })
 
- router.get('/signup', function (req, res) {
+ router.get('/register', function (req, res) {
   res.render('register')
  })
 
@@ -25,7 +27,12 @@ router.get('/', function (req, res) {
  })
 
  
-
+// POST REQUESTS
+router.post('/register', function (req, res) {
+  let message ='';
+  console.log(req.body);
+ 
+ })
 
 
 

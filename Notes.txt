@@ -1,5 +1,22 @@
 npm start
 
+installations: 
+bcrypt
+cookie-parser
+date-and-time
+dotenv
+ejs
+express
+jsonwebtoken
+multer
+mysql 
+nodemailer
+uuid 
+
+res.render  --Get
+res.json   --post
+Can do both
+
 --Media Queries--
 
 /* For screens that are 450px and below
@@ -10,7 +27,10 @@ npm start
 
 
 
-CSS Notes------
+
+
+----CSS Notes------
+when <a> inside of an <li>
 nav ul li { for padding } 
 nav ul li a  { for the color of the text }
 
