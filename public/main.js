@@ -1,14 +1,44 @@
 console.log('working main.js')
-const btn = document.querySelector('.btn')
-const uploadBlogFile = document.querySelector('input[name=blogUpload]')
+
 const Bars = document.querySelector('.fa-bars')
 const slideMenu = document.querySelector('.slideMenu')
 
-if(btn) {
-  btn1.addEventListener('click', ()=> {
-    uploadBlogFile.click()
-  })
+
+////////////////////////// UPLOADING FILES /////////////////////////////////////
+const btnAdmn = document.querySelectorAll('.btnAdmn')
+const hiddenFile = document.querySelectorAll('.hiddenFile')
+const filename_landing = document.querySelectorAll('.filename_landing')
+
+// ** Later we will use formData to send form to the back-end 
+
+// Make hidden file click with buttons
+if(btnAdmn) {
+  for (let i = 0; i < btnAdmn.length; i++) {
+    btnAdmn[i].addEventListener('click', ()=> {
+      hiddenFile[i].click()
+
+    })
+  }
+
+ 
 }
+
+
+//  Show filename under file upload
+for (let i = 0; i < hiddenFile.length; i++) {
+hiddenFile[i].addEventListener('change', (e)=> {
+  console.log( hiddenFile[i].files)
+        // Loop through file for filename
+  for (let b = 0; b < hiddenFile[i].files.length; b++) {
+    filename_landing[i].innerHTML+= hiddenFile[i].files[b].name + '<br>';
+  }
+})
+}
+
+
+
+
+
 
 
 if(Bars) {

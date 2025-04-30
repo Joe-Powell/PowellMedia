@@ -4,15 +4,23 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-  border: 1px black solid;
-  padding: 7px;
+  /* border: 1px black solid; */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 27px;
   margin: 50px auto;
+
 }
 
 .adminForm input {
   padding: 7px 4px;
   margin: 10px 0;
   outline: none;
+}
+
+.adminForm input[type='text']::placeholder {
+  color:black;
+ text-align: center;
 }
 
 .adminForm .btnAdmn {

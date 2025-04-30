@@ -5,6 +5,8 @@ body {
   text-decoration: none;
   list-style: none;
   font-family: system-ui, -apple-system, BlinkMacSystemFont ;
+  background-color: #424570;
+  background-color: #6065f3;
  
 }
 
@@ -16,6 +18,8 @@ body {
 header {
   margin: auto;
   text-align: center;
+  color: rgb(146, 183, 183);
+  color: orange;
 }
 
 
@@ -58,3 +62,21 @@ header {
   text-align: center;
   margin: 0 0 40px;
 }
+
+
+
+/* Footer */
+
+footer {
+  min-height: 100px;
+  color: rgb(249, 245, 245);
+  padding: 30px;
+  text-align: center;
+  background-color: rgb(32, 31, 31);
+  background-color: #2e3157;
+}
+
+footer .title p {
+  font-size: 11px;
+}
+
