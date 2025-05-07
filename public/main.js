@@ -35,6 +35,31 @@ hiddenFile[i].addEventListener('change', (e)=> {
 })
 }
 
+// uploadBlog need to use multer, req.files comes from multer.
+
+const adminForm = document.querySelector('.adminForm')
+
+if(adminForm) {
+  adminForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const formData = new FormData(adminForm);
+    console.log('Main.js '+ formData)
+    
+    
+
+      fetch('/uploadBlog', {
+        method: 'POST',
+        body: formData
+       })
+       .then((res) => res.json())
+       .then((data) => { })
+
+
+  } )
+}
+
+
+
 
 
 

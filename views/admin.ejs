@@ -12,26 +12,27 @@
 </header>
 
 
-<form class="adminForm" name="adminForm" enctype="multipart/form-data">
+<form class="adminForm" enctype="multipart/form-data">
   <input type="text" name="title" placeholder="Title" onfocus="this.placeholder = ''" onblur="this.placeholder='Title'">
   <div>
-    <input class="hiddenFile" type="file" name="blogUpload" hidden>
+    <input  type="file" name="blogUpload" class="hiddenFile"  hidden>
     <button class="btnAdmn" type="button">Blog</button>
     <span class="filename_landing"></span>
   </div>
   <div>
-    <input class="hiddenFile" type="file" name="cssUpload" hidden>
-    <button class="btnAdmn" type="button">Css</button>
-    <span class="filename_landing"></span>
-  </div>
-  <div>
-    <input class="hiddenFile" type="file" name="thumbNailUpload" hidden>
+    <input  type="file" class="hiddenFile" name="thumbNailUpload" hidden>
     <button class="btnAdmn" type="button">Thumbnail</button>
     <span class="filename_landing"></span>
   </div>
+  <div>
+    <input  type="file" name="cssUpload" class="hiddenFile"  hidden>
+    <button class="btnAdmn" type="button">Css</button>
+    <span class="filename_landing"></span>
+  </div>
+ 
 
   
-  <input type="submit" name="submitAdminForm">
+  <input type="submit" >
 
 </form>
 

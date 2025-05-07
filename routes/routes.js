@@ -5,8 +5,38 @@ router.use(express.urlencoded({ extended: false }));
 var cookieParser = require('cookie-parser')
 router.use(cookieParser())
 
+// Multer
+const multer  = require('multer')
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // cb(null, 'public/uploads')
+    if (file.fieldname === "blogUpload") {
+      cb(null, 'views/uploads')
+  }
+  else if (file.fieldname === "thumbNailUpload") {
+      cb(null, 'public/uploadthumbnail');
+  }
+  else if (file.fieldname === "cssUpload") {
+      cb(null, 'public/css/uploadedCSS');
+  }
+  // else if (file.fieldname === "ReUploadBlogFile") {
+  //     cb(null, 'views/uploads');
+  // }
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, file.originalname)
+    //cb(null, uniqueSuffix + '-' + file.originalname)  // NOT USING SERIALIZED 
+  }
+})
+
+const upload = multer({ storage: storage })
+
+
 // DB
 let mysql = require('mysql');
+
 
 //let db = mysql.createConnection({
   //host: '127.0.0.1',
@@ -50,6 +80,19 @@ router.get('/', function (req, res) {
 router.post('/register', function (req, res) {
   let message ='';
   console.log(req.body);
+ 
+ })
+
+
+router.post('/uploadBlog',upload.fields([{ name: 'blogUpload', maxCount: 1},{name: 'thumbNailUpload', maxCount: 1},{name: 'cssUpload', maxCount: 1}]), function (req, res) {
+  // let message ='';
+  console.log('posted admin form to back-end')
+  console.log(req.files);
+  console.log(req.body);
+  //console.log(req.files.blogUpload[0].filename);
+  // console.log(req.body.title);
+  // console.log('message = ' + message);
+  // console.log('routes.js  '+ req.body.title);
  
  })
 
