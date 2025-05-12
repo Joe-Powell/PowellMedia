@@ -20,9 +20,9 @@ const storage = multer.diskStorage({
   else if (file.fieldname === "cssUpload") {
       cb(null, 'public/css/uploadedCSS');
   }
-  // else if (file.fieldname === "ReUploadBlogFile") {
-  //     cb(null, 'views/uploads');
-  // }
+  else if (file.fieldname === "ReUploadBlogFile") {
+      cb(null, 'views/uploads');
+  }
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
@@ -36,6 +36,23 @@ const upload = multer({ storage: storage })
 
 // DB
 let mysql = require('mysql');
+
+let db = mysql.createConnection({
+  host: '127.0.0.1',
+  user: 'root',
+   //user: 'userjoe',
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.DBNAME
+});
+
+db.connect((error) => {
+  if (error) {
+      console.log('error routes.js ',error)
+  } else {
+      console.log('mysql connected..');
+  }
+})
+
 
 
 //let db = mysql.createConnection({
@@ -88,11 +105,13 @@ router.post('/uploadBlog',upload.fields([{ name: 'blogUpload', maxCount: 1},{nam
   // let message ='';
   console.log('posted admin form to back-end')
   console.log(req.files);
-  console.log(req.body);
-  //console.log(req.files.blogUpload[0].filename);
-  // console.log(req.body.title);
-  // console.log('message = ' + message);
-  // console.log('routes.js  '+ req.body.title);
+  
+  const title = req.body.title;
+  const blog_url = req.files.blogUpload[0].filename;
+  const image_url = req.files.thumbNailUpload[0].filename;
+  console.log('title= '+ title + ' image_url= ' + image_url  + ' blog_url= ' + blog_url );
+
+  
  
  })
 

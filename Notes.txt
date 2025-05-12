@@ -56,3 +56,6 @@ blogs.ejs line 56
 
 ~~~ AWS s3 Bucket~~~
 https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-nodejs.html
+
+~~~Multer docs~~~
+https://www.npmjs.com/package/multer/v/1.4.5-lts.1
