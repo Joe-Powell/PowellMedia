@@ -52,7 +52,18 @@ if(adminForm) {
         body: formData
        })
        .then((res) => res.json())
-       .then((data) => { })
+       .then((data) => {
+
+       if(data.success){
+        document.querySelector('.submit_landing').innerHTML= data.success; 
+          }
+
+      if(data.error) {
+        document.querySelector('.submit_landing').innerHTML= data.error; 
+
+      }
+
+        })
 
 
   } )

@@ -71,30 +71,38 @@ db.connect((error) => {
 //   }
 // })
 
-
+ 
 router.get('/', function (req, res) {
-  res.render('index')
+  const AdminLoggedIn = req.cookies['Admincookie'];
+  res.render('index', {AdminLoggedIn})
  })
  
  router.get('/about', function (req, res) {
-  res.render('about')
+  const AdminLoggedIn = req.cookies['Admincookie'];
+  res.render('about', {AdminLoggedIn})
  })
  
  router.get('/admin', function (req, res) {
-  res.render('admin')
+   const AdminLoggedIn = req.cookies['Admincookie'];
+  res.render('admin', {AdminLoggedIn})
  })
 
  router.get('/register', function (req, res) {
-  res.render('register')
+  const AdminLoggedIn = req.cookies['Admincookie'];
+  let message ='';
+ res.render('register', {AdminLoggedIn})
  })
 
  router.get('/login', function (req, res) {
-  res.render('login')
+   const AdminLoggedIn = req.cookies['Admincookie'];
+  res.render('login', {AdminLoggedIn})
  })
 
  
 // POST REQUESTS
 router.post('/register', function (req, res) {
+   const AdminLoggedIn = req.cookies['Admincookie'];
+
   let message ='';
   console.log(req.body);
  
@@ -105,11 +113,26 @@ router.post('/uploadBlog',upload.fields([{ name: 'blogUpload', maxCount: 1},{nam
   // let message ='';
   console.log('posted admin form to back-end')
   console.log(req.files);
-  
+
   const title = req.body.title;
   const blog_url = req.files.blogUpload[0].filename;
   const image_url = req.files.thumbNailUpload[0].filename;
-  console.log('title= '+ title + ' image_url= ' + image_url  + ' blog_url= ' + blog_url );
+  
+ 
+  
+
+  if( title, blog_url, image_url) {
+    console.log('title= '+ title + ' image_url= ' + image_url  + ' blog_url= ' + blog_url  );
+    const query_insert = 'INSERT INTO admin_posts (title,blog_url,thumb_url,css_url) VALUES(?,?,?)';
+
+    db.query(query_insert, [title, blog_url, image_url], 
+      (err, res) => {
+        if (err) throw err;
+      })
+      res.json({ success: 'Registered Successfully!' });
+  }else {
+    res.json({ error: 'Please fill all fields' });
+  }
 
   
  

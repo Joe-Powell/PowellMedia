@@ -1,0 +1,322 @@
+
+----------GITHUB new repository in the interface------------------------------
+Make sure not to add the readme in the github interface.
+echo "# joesFitnessBlog" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Joe-Powell/joesFitnessBlog.git
+git push -u origin main
+
+…or push an existing repository from the command line...
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Joe-Powell/PowellMedia.git
+git branch -M main
+git push -u origin main
+
+---------------------------------------------------------------------------
+			
+				
+	
+	---------------------------------------------------------------------------
+					GIT-BASH, LINUX TYPE COMMANDS   			
+	---------------------------------------------------------------------------
+	
+	CD into the Home directory:
+	 [cd + enter]   OR  [cd + ~ + enter] 
+	
+	See all files/folders within current directory [ls]
+	 [ls + enter]
+	 
+	Show directories and invisable/hidden ones too [ls -a ]
+
+	Root directory  [cd /]
+	Back to home direcctory [cd]
+	Back one directory [cd ..]
+	
+	PASTE: shift insert or rightclick paste
+		
+	
+	MAKE files/folders ----
+		Make a folder [mkdir foldername]  
+		Make a file [touch file.js]
+	
+	DELETE files/folders ----
+		Delete directory when not empty [rm -R dir2] or [rm -r dir2] 
+		Delete an empty directory  [rmdir dir2]
+		Delete a file [rm filename.txt]
+		 
+	 
+	cat -> shows the contents within a file [cat filename.txt]
+	less -> shows file only, q to exit..
+	pwd -> shows what directory your in
+	~ -> from home directory
+	clear  -> clears terminal
+	
+	
+	NANO ----
+	nano ->  [nano filename.txt] 
+	ctrl x to exit, then [y then enter] to save
+	
+	
+	RENAME A FILE, MOVE FILE, MOVE FILE TO ANOTHER DIRECTORY, MAKE A COPY FILE, ECT ----
+	Rename a file [mv file1.txt  file2.txt] 
+	Move folder [mv   /home/joey/react_app/build/* /var/www/html]   
+	
+	TO MOVE FILE TO ANOTHER DIRECTORY: must create the new folder first if it don't exist must use forward slash / not \
+		1. mkdir theNewFolder
+		2. mv oldFolder/fileToMove.txt theNewFolder/fileToMove.txt [enter]
+		EXAMPLE THIS WORKED:
+			mv C:/xampp/htdocs/phpsandbox/helloNotepad.txt C:/Users/Joseph/Documents/notesGithub/helloNotepad.txt
+
+	
+	TO COPY A FILE   [cp file2.txt filenameOfCopy.txt] 
+	
+	See contents of file with cat [cat filenameOfCopy.txt]   
+	
+	copy to other locations
+	cp file1.txt ~/dir2/file3.txt  
+	
+	which -> searches for a  program location 
+	which mongod    // /usr/bin/mongod
+	sudo when not logged in as root user
+	
+	cat ~/.ssh/id_rsa.pub
+	
+	
+	TO open directory in software from command line:
+		VISUAL STUDIO CODE [cd into folder then type [code .]	
+		FOR NOTEPAD++ [start notepad++ gitHubAndGitbash.txt] 
+		FOR CHROME [start chrome ~/documents/weatherApi/index.html]  
+		For chrome localhost [start chrome localhost/codedriven ]
+		FOR WEBSITE [start chrome facebook.com] 
+
+
+	See ip address-> ipconfig
+
+
+--------------------------------------------------------------------------------------------------------	
+						GIT commands in terminal and Github 
+						
+-------------------------------------------------------------------------------------------------------
+
+Make email match
+git config --global user.email "you@example.com"
+
+		> right click on folder in explorer to bash here and be in directory or cd in yourself
+		> git init innitializes git repository
+		> git status shows what files are staged and comitted or needs to be
+		> git add .  will add everything to staging  
+		> git add index.html  adds just one file 		
+		> git add *.html will add all .html files to staging
+		> git rm --cached index.html  removes index.html 
+		> git commit -m 'this is the message'
+		
+		Commit manually:
+		after git add .  type [git commit enter]
+		git commit cant type anymore so click i to go into insert mode or enter
+		you must enter a commit message first not commented out to commit 
+		You can add a comment to the top line or you can remove a # comment if you want
+		then you can type to get out hit esc :wq then enter 
+		
+		when commiting you can skip the edit stage in git bash by typing 
+			git commit -m 'this is the message'  then enter, it must have a message...
+			
+	REMOVE FROM COMMIT AND STAGING
+		UnCommit: git reset --soft HEAD~1
+		UnStage: git reset HEAD .
+		
+		
+		
+	GITIGNORE
+		make files that wont get added to staging .gitignore    
+		touch .gitignore, you cant create in the explorer directory, use cmd or bash
+		to put whole folder put folder name 
+		if you put *.txt it will  get all .txtfiles
+		package-lock.json  for file
+		/node_modules for directory 
+			
+			
+	BRANCHES  
+		To see branches: [git branch] remote branches- git branch -r
+		To go into a branch: [git checkout branchname] 			
+		To create  branch: [git branch branchname], go into: git checkout newbranch, push into: add. commit, then git push -u origin newbranch
+		To delete a branch: [git branch -d branch_name] *make sure your not inside branch your deleting..			
+		To push your local branch into Github: [git push -u origin branchname]  or [ git push --set-upstream origin branchname]  
+		To merge a branch to main: while in that branch commit it [git add .] [git commit -m 'msg']  then 
+		go to main [git checkout main] [git merge branchname]
+			
+	
+	MERGE
+		git status
+		while in the master branch
+		git merge branchname
+		press i then add a message then uncommented
+		esc :wq  enter
+		
+		To merge a branch to main: while in that branch commit it [git add .] [git commit -m 'msg']  then 
+		go to master or main [git checkout main] [git merge branchname]
+	
+	REPOSITORY INTO GITHUB
+		dont forget to git init first in the computer folder
+		so go to github.com, make new repository in hub first, copy and past into the 
+		commandline 
+		this aint perfect, instructions in the github thingie once you create repo...
+		*	git remote add origin https://github.com/Joe-Powell/new.git
+		*   git push -u origin master
+		* enter uname/password prompt
+		then everytime you make changes, youll first 
+		*git add .
+		 then git commit -m 'added changes' in bash..
+			command line message, then esc then :wq    
+		 now its added to local computer
+		 we havent actually pushed it yet so..
+		 then git push 	then it will push right to github
+			
+	
+		
+	CLONE 
+		mkkdir  name of folder
+		cd into folder
+		[git clone  clonename .] from github * Add the . to clone all folders and files without parent folder
+		cd into that folder then code . to open in VS
+		if its react or node, npm install in the right place, maybe in app?
+		npm start
+		
+		Clone a private repository: 
+			1. Go to settings
+			2. Scroll down to Developer settings
+			3. Personal Access tokens, choose tokens(classic)
+			4. Leave a token name or title, choose "repo", scroll down to generate token
+			5.copy token to clipboard and save it somewhhere, goot for 30 days
+			6. Grab the repo to clone then type " git clone <paste repo in here but after https:// put the token >
+			example: git clone https://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@github.com/<your account or organization>/<repo>.git
+				https://<token>github.com/Joe-Powell/node_ivas_site.git
+
+	PULL 
+		Is where you make changes on github itself and want to pull into your computer.
+		git pull
+		*if the error comes up where you cant pull here try these below: 
+		you will loose local changes keep in mind
+		git stash, git stash drop, git pull
+
+		
+	RESET:
+			git reset HEAD~9
+					
+			
+	 REMOTE: 
+		see remote -> git remote 
+		TO REMOVE THE REMOTE: git remote rm origin  
+		
+		
+		
+		
+		
+SQL::::::::::::::::::::::::::::::::::::
+		
+		In order to enter the MySQL shell on your local machine, you must add it to your environment variables
+• In search pull up environment variables, select Environment Variables
+
+• On the bottom in system variables highlight path then click edit, click New then Browse
+
+• For XAMPP choose- C:\xampp\mysql\bin, for Windows choose- /Program Files/MySQL/MySQL version/bin.
+
+• Click Ok to everything and close
+
+• After those steps you should have access to mysql shell in your terminal
+
+• Login: mysql -u root -p
+
+Enter Local Machine shell:
+• Use CMD not bash
+
+• hit enter after entering the command then enter password 1234
+
+mysql -u root -p
+
+
+
+•Create a Database
+CREATE DATABASE DBname;
+
+•SHOW DATABASES
+SHOW DATABASES;
+
+
+•To Delete a Database
+DROP DATABASE databasename;
+
+
+•Step inside a database
+Before making any tables or columns you must first step inside the database.
+use databasename;
+
+
+•Create a table and it's columns
+CREATE TABLE tablename (
+  id int NOT NULL AUTO_INCREMENT,
+  url_path VARCHAR(255),
+  title VARCHAR(255),
+  readmore VARCHAR(255),
+  image_url VARCHAR(255),
+  category VARCHAR(255),
+  created_on TIMESTAMP
+  DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+  );
+  
+
+•Show all tables
+SHOW TABLES;
+
+
+•Delete a table
+DROP TABLE table_name;
+
+
+•Show all columns and rows
+SELECT * FROM tablename;
+
+
+•Rename a table
+ALTER TABLE old_tablename RENAME TO new_tablename;
+
+
+•Add a column
+ALTER TABLE tablename ADD Last_name varchar(250);
+
+
+•Add a column with date
+ALTER TABLE tablename ADD date DATE DEFAULT CURRENT_DATE ;
+
+
+•Add a column with date
+ALTER TABLE tablename ADD description varchar(250) AFTER `category`;
+
+
+•Update/Edit a column
+UPDATE tablename SET title = 'newtitle', image_url = 'uploads/newimage_url.png' WHERE id='2';
+
+
+•Delete a column
+ALTER TABLE tablename DROP COLUMN students;
+
+
+•Insert new record/row
+INSERT INTO tablename(username,password,email,created_on) VALUES('mike','763449', 'mikee@mail', CURRENT_TIMESTAMP);
+
+
+•Delete record/row
+DELETE FROM tablename WHERE title = 'sometitle';
+
+
+•Search for a word in column
+SELECT * FROM tablename WHERE searchresults LIKE '%node.js,%';
+
+
+•Search for exact word, nothing before or after
+SELECT * FROM tablename WHERE searchresults LIKE 'node';

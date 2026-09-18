@@ -1,6 +1,32 @@
 npm start
 
-installations: 
+----------------Flowchart-------------------------
+1. Make front end node.js with ejs, make it a git repository, make a home page and navbar, make it a git repo,
+use .gitignore to hide- node_modules,  package-lock.json, upload folders too..
+1.5 Create a register page and login page with routes to handle them in routes that makes cookies.
+PROTECTED navbar buttons::::
+make sure in the route you have the variable and send it through 
+or else there will be an error.
+http://localhost/phpmyadmin
+
+
+
+2. make admin page with form 
+3. use javascript with fetch to handle submit onclick
+4. create route in back-end to catch data 
+5. use multer middleware to upload files into the right folders
+6. validate data, put url in variables for the database
+7. install mysql, create database and table with columns,
+8. in the get route for index, query the database, render the results,
+render a second query that grabs just the latest blog.
+8. Use for loop to iterate through dtabase and render on the home page
+9. 
+
+
+
+
+
+----- installations: 
 bcrypt
 cookie-parser
 date-and-time
@@ -59,3 +85,15 @@ https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-starte
 
 ~~~Multer docs~~~
 https://www.npmjs.com/package/multer/v/1.4.5-lts.1
+
+
+
+STILL NEED--
+in the get route for index, query the database, render the results, render a second query that grabs just the latest blog.
+in index.ejs loop through the database, make the cards to click on.
+
+
+
+PROTECTED navbar buttons::::
+make sure in the route you have the variable and send it through 
+or else there will be an error.
