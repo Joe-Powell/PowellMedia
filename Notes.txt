@@ -1,5 +1,5 @@
 npm start
-github token::  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
+
 
 ----------------Flowchart-------------------------
 1. Make front end node.js with ejs, make it a git repository, make a home page and navbar, make it a git repo,
