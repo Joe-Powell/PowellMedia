@@ -98,3 +98,27 @@ in index.ejs loop through the database, make the cards to click on.
 PROTECTED navbar buttons::::
 make sure in the route you have the variable and send it through 
 or else there will be an error.
+
+
+
+
+Latest Multer:
+https://www.npmjs.com/package/multer?activeTab=readme
+
+
+
+||||||||  LOGIN FUNDAMENTALS ||||||||||||
+
+1. Make database with columns and rows for pw, username, timestamp, ect.
+2. Register page, you gotta register first to be able to login
+3. Javascript to grab submission, fetch APi to push into the route 
+4. POST route in router to catch, authentify, multer to upload a file into site folder, mqsql to push into database
+
+create login page,
+javascript to crab submission
+route to catch submission from javascriptfetch api
+
+
+ and create cookie or session. 
+
+

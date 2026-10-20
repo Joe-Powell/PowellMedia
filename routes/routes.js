@@ -5,6 +5,13 @@ router.use(express.urlencoded({ extended: false }));
 var cookieParser = require('cookie-parser')
 router.use(cookieParser())
 
+
+let mysql = require('mysql');
+ const bcrypt = require('bcrypt');
+ const jwt = require('jsonwebtoken');
+// const nodemailer = require("nodemailer");
+// const { v4: uuidv4 } = require('uuid');
+
 // Multer
 const multer  = require('multer')
 
@@ -35,14 +42,13 @@ const upload = multer({ storage: storage })
 
 
 // DB
-let mysql = require('mysql');
 
 let db = mysql.createConnection({
   host: '127.0.0.1',
   user: 'root',
-   //user: 'userjoe',
+   //user: 'powellmediauser',
   password: process.env.MYSQLPASSWORD,
-  database: process.env.DBNAME
+  database: process.env.DBNAME,
 });
 
 db.connect((error) => {
@@ -55,21 +61,10 @@ db.connect((error) => {
 
 
 
-//let db = mysql.createConnection({
-  //host: '127.0.0.1',
-  //user: 'root',
-   //user: 'useriva',
-  //password: process.env.MYSQLPASSWORD,
-  //database: process.env.DBNAME
-//});
 
-// db.connect((error) => {
-//   if (error) {
-//       console.log('error routes.js ',error)
-//   } else {
-//       console.log('mysql connected..');
-//   }
-// })
+
+
+
 
  
 router.get('/', function (req, res) {
@@ -100,8 +95,37 @@ router.get('/', function (req, res) {
 
  
 // POST REQUESTS
+
+
+// Register // 
 router.post('/register', function (req, res) {
-   const AdminLoggedIn = req.cookies['Admincookie'];
+
+  const { email, username, password } = req.body;
+   if ((email, username, password)) {
+    if (password.length < 6) {
+      return res.json({ error: '6 characters minimum for password' });
+    }
+     db.query('SELECT email FROM accounts WHERE email=?',[email],
+      async (err, result) => {
+        if (result.length > 0) {
+          return res.json({ error: 'Email Taken' });
+        } else {
+          const hashedPwd = await bcrypt.hash(password, 10);
+
+          const sql ='INSERT INTO accounts (email, username, password) VALUES (?,?,?)';
+          db.query(sql, [email, username, hashedPwd], (err, resp) => {
+            if (err) throw err; 
+          });
+
+          res.json({ success: 'Registered Successfully!' });
+        }
+      }
+    );
+  }else {
+    res.json({ error: 'Please fill all fields' });
+  }
+   
+  
 
   let message ='';
   console.log(req.body);

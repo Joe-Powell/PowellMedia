@@ -113,6 +113,7 @@ if(reglogForm) {
     const username = document.querySelector('input[name=username]').value;
     const password = document.querySelector('input[name=password]').value;
     console.log(email,username, password )
+
     const body = {
       email,
       username,
@@ -126,12 +127,20 @@ if(reglogForm) {
           'Accept': 'application/json'
         },
         body: JSON.stringify(body)
-          })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('data=',data)
+        if(data.success) {
+            document.querySelector('.reglogForm h4').innerHTML= data.success; 
+           
+        }
+        
+        if(data.error) {
+            document.querySelector('.reglogForm h4').innerHTML= data.error; 
+            console.log(data.error)
+        }
 
- 
-
-
-
-
-  } )
+    })
+    })
 }
