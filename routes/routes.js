@@ -100,8 +100,8 @@ router.get('/', function (req, res) {
 // Register // 
 router.post('/register', function (req, res) {
 
-  const { email, username, password } = req.body;
-   if ((email, username, password)) {
+  const { email, password } = req.body;
+   if ((email, password)) {
     if (password.length < 6) {
       return res.json({ error: '6 characters minimum for password' });
     }
@@ -112,8 +112,8 @@ router.post('/register', function (req, res) {
         } else {
           const hashedPwd = await bcrypt.hash(password, 10);
 
-          const sql ='INSERT INTO accounts (email, username, password) VALUES (?,?,?)';
-          db.query(sql, [email, username, hashedPwd], (err, resp) => {
+          const sql ='INSERT INTO accounts (email, password) VALUES (?,?)';
+          db.query(sql, [email, hashedPwd], (err, resp) => {
             if (err) throw err; 
           });
 
@@ -133,34 +133,78 @@ router.post('/register', function (req, res) {
  })
 
 
-router.post('/uploadBlog',upload.fields([{ name: 'blogUpload', maxCount: 1},{name: 'thumbNailUpload', maxCount: 1},{name: 'cssUpload', maxCount: 1}]), function (req, res) {
-  // let message ='';
-  console.log('posted admin form to back-end')
-  console.log(req.files);
+ // Login //
 
-  const title = req.body.title;
-  const blog_url = req.files.blogUpload[0].filename;
-  const image_url = req.files.thumbNailUpload[0].filename;
-  
+router.post('/login', function (req, res) {
+const { email, password } = req.body;
+
  
-  
 
-  if( title, blog_url, image_url) {
-    console.log('title= '+ title + ' image_url= ' + image_url  + ' blog_url= ' + blog_url  );
-    const query_insert = 'INSERT INTO admin_posts (title,blog_url,thumb_url,css_url) VALUES(?,?,?)';
 
-    db.query(query_insert, [title, blog_url, image_url], 
-      (err, res) => {
-        if (err) throw err;
-      })
-      res.json({ success: 'Registered Successfully!' });
-  }else {
-    res.json({ error: 'Please fill all fields' });
-  }
 
-  
- 
+
+
  })
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// router.post('/uploadBlog',upload.fields([{ name: 'blogUpload', maxCount: 1},{name: 'thumbNailUpload', maxCount: 1},{name: 'cssUpload', maxCount: 1}]), function (req, res) {
+//   // let message ='';
+//   console.log('posted admin form to back-end')
+//   console.log(req.files);
+
+//   const title = req.body.title;
+//   const blog_url = req.files.blogUpload[0].filename;
+//   const image_url = req.files.thumbNailUpload[0].filename;
+
+//   if( title, blog_url, image_url) {
+//     console.log('title= '+ title + ' image_url= ' + image_url  + ' blog_url= ' + blog_url  );
+//     const query_insert = 'INSERT INTO admin_posts (title,blog_url,thumb_url,css_url) VALUES(?,?,?)';
+
+//     db.query(query_insert, [title, blog_url, image_url], 
+//       (err, res) => {
+//         if (err) throw err;
+//       })
+//       res.json({ success: 'Registered Successfully!' });
+//   }else {
+//     res.json({ error: 'Please fill all fields' });
+//   }
+
+//  })
 
 
 

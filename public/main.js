@@ -110,13 +110,12 @@ if(reglogForm) {
     e.preventDefault()
     console.log('Submitted registration form in signup page')
     const email = document.querySelector('input[name=email]').value;
-    const username = document.querySelector('input[name=username]').value;
+    // const username = document.querySelector('input[name=username]').value;
     const password = document.querySelector('input[name=password]').value;
-    console.log(email,username, password )
+    console.log(email, password )
 
     const body = {
       email,
-      username,
       password
       }
 
